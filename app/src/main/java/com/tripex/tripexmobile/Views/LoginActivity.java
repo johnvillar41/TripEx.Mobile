@@ -45,4 +45,14 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
     public String getToken() {
         return null;
     }
+
+    @Override
+    public String getUsername() {
+        return null;
+    }
+
+    @Override
+    public String getPassword() {
+        return null;
+    }
 }
