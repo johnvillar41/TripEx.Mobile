@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
 
     @Override
     public void displayProgressLoader() {
-        binding.progressBar.setVisibility(View.VISIBLE);
+        binding.progressBar.setVisibility(View.GONE);
     }
 
     @Override

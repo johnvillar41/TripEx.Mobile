@@ -22,7 +22,7 @@ import java.util.Map;
 
 public abstract class BaseService {
 
-    public static final String BASE_URL = "https://localhost:7166/";
+    public static final String BASE_URL = "http://10.0.2.2:5247/";
     public static final String API_KEY_VALUE = "pgH7QzFHJx4w46fI~5Uzi4RvtTwlEXp";
     public static final String API_KEY_NAME = "X-API-Key";
     public static final String BASE_URL_API = BASE_URL + "api/";

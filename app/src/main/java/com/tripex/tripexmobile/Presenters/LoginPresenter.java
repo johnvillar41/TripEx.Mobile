@@ -60,8 +60,6 @@ public class LoginPresenter {
                             ErrorLoginAPIResponse<String> response = new Gson().fromJson(errorMessage, apiResponseType);
                             view.displayError(response.getResult());
                         }
-
-                        view.hideProgressLoader();
                     }
 
                     @Override
