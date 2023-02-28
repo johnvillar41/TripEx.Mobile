@@ -23,7 +23,7 @@ public class LoginService extends BaseService implements ILoginService {
 
     @Override
     public void getAccount(String username, String password, File cacheDir, VolleyCallback<JSONObject> callback) {
-        String url = BASE_URL_API + "Login";
+        String url = BASE_URL_API + "User/Login";
         JSONObject object = new JSONObject();
         try {
             object.put("username", username);

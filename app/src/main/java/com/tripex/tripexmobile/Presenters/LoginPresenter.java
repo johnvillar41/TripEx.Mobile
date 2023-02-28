@@ -40,7 +40,7 @@ public class LoginPresenter {
                 new BaseService.VolleyCallback<JSONObject>() {
                     @Override
                     public void onSuccess(JSONObject result) {
-                        Type apiResponseType = new TypeToken<APIResponse<String>>() {
+                        Type apiResponseType = new TypeToken<SuccessLoginAPIResponse<String>>() {
                         }.getType();
                         SuccessLoginAPIResponse<String> response = new Gson().fromJson(String.valueOf(result), apiResponseType);
 
