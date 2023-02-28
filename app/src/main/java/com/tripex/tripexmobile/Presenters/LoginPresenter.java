@@ -17,7 +17,8 @@ public class LoginPresenter {
     }
 
     public void onLoginButtonClicked() {
-        service.getAccount(view.getUsername(), view.getUsername(), view.getCacheDirectory(), new BaseService.VolleyCallback<JSONObject>() {
+        view.displayProgressLoader();
+        service.getAccount(view.getUsername(), view.getPassword(), view.getCacheDirectory(), new BaseService.VolleyCallback<JSONObject>() {
             @Override
             public void onSuccess(JSONObject result) {
 
@@ -30,7 +31,7 @@ public class LoginPresenter {
 
             @Override
             public void onFinishedTask() {
-
+                view.hideProgressLoader();
             }
 
             @Override
@@ -40,4 +41,7 @@ public class LoginPresenter {
         });
     }
 
+    public void onClearButtonClicked() {
+        view.clearFields();
+    }
 }
