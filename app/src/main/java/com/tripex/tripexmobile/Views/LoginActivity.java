@@ -83,4 +83,19 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
         binding.editTextUser.getText().clear();
         binding.editTextPassword.getText().clear();
     }
+
+    @Override
+    public boolean validateInputFields() {
+        return validateFields(binding.editTextUser, binding.editTextPassword);
+    }
+
+    @Override
+    public void redirectToDashboard() {
+
+    }
+
+    @Override
+    public void storeUserData(String result, String userId) {
+
+    }
 }
