@@ -16,7 +16,8 @@
         android:theme="@style/Theme.Material3.Dark"
         tools:targetApi="31">
         <activity
-            android:name=".DashboardMenuActivity"
+            android:name=".Views.DashboardMenuActivity"
+            android:theme="@style/Theme.Material3.Dark.NoActionBar"
             android:exported="false" />
         <activity
             android:name=".Views.LoginActivity"
