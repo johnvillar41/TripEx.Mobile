@@ -80,6 +80,7 @@
                     android:layout_margin="10dp"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
+                    android:id="@+id/cardQrCode"
                     android:layout_weight="1">
 
                     <RelativeLayout
@@ -113,6 +114,7 @@
                     app:cardCornerRadius="5sp"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
+                    android:id="@+id/cardVehicle"
                     android:layout_weight="1">
 
                     <RelativeLayout
@@ -158,6 +160,7 @@
                     app:cardCornerRadius="5sp"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
+                    android:id="@+id/cardDriver"
                     android:layout_weight="1">
 
                     <RelativeLayout
@@ -191,6 +194,7 @@
                     app:cardCornerRadius="5sp"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
+                    android:id="@+id/cardComplaint"
                     android:layout_weight="1">
 
                     <RelativeLayout
@@ -235,6 +239,7 @@
                     app:cardCornerRadius="5sp"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
+                    android:id="@+id/cardPrivacy"
                     android:layout_weight="1">
 
                     <RelativeLayout
@@ -268,6 +273,7 @@
                     app:cardCornerRadius="5sp"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
+                    android:id="@+id/cardSetting"
                     android:layout_weight="1">
 
                     <RelativeLayout
