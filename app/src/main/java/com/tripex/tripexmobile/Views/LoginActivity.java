@@ -1,5 +1,6 @@
 package com.tripex.tripexmobile.Views;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -7,6 +8,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.tripex.tripexmobile.Helpers.KeyStorage;
 import com.tripex.tripexmobile.Presenters.LoginPresenter;
 import com.tripex.tripexmobile.R;
 import com.tripex.tripexmobile.Services.LoginService;
@@ -91,11 +93,12 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
 
     @Override
     public void redirectToDashboard() {
-
+        Intent intent = new Intent(this, DashboardMenuActivity.class);
+        startActivity(intent);
     }
 
     @Override
     public void storeUserData(String result, String userId) {
-
+        KeyStorage.getInstance().storeUserData(result, userId, getApplicationContext());
     }
 }
