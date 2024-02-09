@@ -1,6 +1,7 @@
 package com.tripex.tripexmobile.Services;
 
 import com.android.volley.Cache;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Network;
 import com.android.volley.ParseError;
 import com.android.volley.RequestQueue;
@@ -11,8 +12,13 @@ import com.android.volley.toolbox.BasicNetwork;
 import com.android.volley.toolbox.DiskBasedCache;
 import com.android.volley.toolbox.HurlStack;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
+import com.tripex.tripexmobile.Helpers.CircularReferenceSerializer;
 import com.tripex.tripexmobile.Helpers.NukeSSLCerts;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
@@ -22,7 +28,7 @@ import java.util.Map;
 
 public abstract class BaseService {
 
-    public static final String BASE_URL = "http://192.168.1.69:99/";
+    public static final String BASE_URL = "http://192.168.1.9:82/";
     public static final String API_KEY_VALUE = "pgH7QzFHJx4w46fI~5Uzi4RvtTwlEXp";
     public static final String API_KEY_NAME = "X-API-Key";
     public static final String BASE_URL_API = BASE_URL + "api/";
@@ -39,7 +45,7 @@ public abstract class BaseService {
         void onExceptionOccur(Exception exception);
     }
 
-    public void transactJsonObjectData(File cacheDir, String token, String url, VolleyCallback<JSONObject> callback, JSONObject args, int requestType) {
+    public void transactJsonObjectData(File cacheDir, String token, String url, VolleyCallback<JSONObject> callback, JsonObject args, int requestType) {
         nukeSSLCerts(new NukeSSLCerts.OnNukeSSLCertExceptionTrigger() {
             @Override
             public void onException(Exception exception) {
@@ -57,7 +63,9 @@ public abstract class BaseService {
 
         requestQueue.start();
 
-        JsonObjectRequest request = new JsonObjectRequest(requestType, url, args, new Response.Listener<JSONObject>() {
+        JSONObject volleyJsonBody = CircularReferenceSerializer.serialize(args);
+
+        JsonObjectRequest request = new JsonObjectRequest(requestType, url, volleyJsonBody, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 callback.onSuccess(response);
@@ -68,12 +76,16 @@ public abstract class BaseService {
             public void onErrorResponse(VolleyError error) {
                 parseErrorResponse(error, callback);
             }
-        }){
+        }) {
             @Override
             public Map<String, String> getHeaders() {
                 return parseAuthKey(token);
             }
         };
+
+        request.setRetryPolicy(new DefaultRetryPolicy(0, -1,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
         requestQueue.add(request);
     }
 

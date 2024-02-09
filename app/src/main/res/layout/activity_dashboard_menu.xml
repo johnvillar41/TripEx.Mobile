@@ -17,16 +17,15 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="#00008577"
-                app:titleTextColor="@color/black"
-                app:title="Dashboard"
                 android:minHeight="?attr/actionBarSize"
                 android:theme="?attr/actionBarTheme"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:title="Dashboard"
+                app:titleTextColor="@color/black" />
 
             <TextView
-                android:textColor="@color/black"
                 android:id="@+id/textView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -34,27 +33,39 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="24dp"
                 android:text="Trip.Ex"
+                android:textColor="@color/black"
                 android:textSize="30sp"
                 app:layout_constraintEnd_toStartOf="@+id/imageView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
             <TextView
-                android:textColor="@color/black"
                 android:id="@+id/textView2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
                 android:text="Start a new Journey"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toStartOf="@+id/imageView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+            <TextView
+                android:id="@+id/textViewName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:text="Id"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="0dp"
-                android:layout_height="160dp"
+                android:layout_height="100dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:src="@mipmap/ic_launcher_foreground"
@@ -74,14 +85,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageView">
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cardQrCode"
                     android:layout_width="0dp"
-                    app:cardCornerRadius="5sp"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    android:foreground="?android:attr/selectableItemBackground"
+                    android:layout_weight="1"
                     android:clickable="true"
-                    android:id="@+id/cardQrCode"
-                    android:layout_weight="1">
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="5sp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -94,52 +105,20 @@
                             android:layout_below="@id/bus"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
-                            android:text="Scan Qr Code"
+                            android:text="Driver Scanner"
                             android:textSize="24sp" />
 
                         <ImageView
-                            android:src="@drawable/baseline_qr_code_scanner_24"
                             android:id="@+id/bus"
                             android:layout_width="75dp"
                             android:layout_height="75dp"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="15dp" />
+                            android:layout_marginTop="15dp"
+                            android:src="@drawable/baseline_qr_code_scanner_24" />
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="10dp"
-                    app:cardCornerRadius="5sp"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:id="@+id/cardVehicle"
-                    android:layout_weight="1">
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/textView4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/imageView3"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="10dp"
-                            android:text="Vehicles"
-                            android:textSize="24sp" />
-
-                        <ImageView
-                            android:src="@drawable/baseline_directions_bus_24"
-                            android:id="@+id/imageView3"
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="15dp" />
-                    </RelativeLayout>
-                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
             <LinearLayout
@@ -154,14 +133,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cardVehicleQrCode"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    app:cardCornerRadius="5sp"
-                    android:foreground="?android:attr/selectableItemBackground"
+                    android:layout_weight="1"
                     android:clickable="true"
-                    android:id="@+id/cardDriver"
-                    android:layout_weight="1">
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="5sp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -171,31 +150,31 @@
                             android:id="@+id/textView6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/bus1"
+                            android:layout_below="@id/scanner2"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
-                            android:text="Drivers"
+                            android:text="Vehicle Scanner"
                             android:textSize="24sp" />
 
                         <ImageView
-                            android:src="@drawable/baseline_person_24"
-                            android:id="@+id/bus1"
+                            android:id="@+id/scanner2"
                             android:layout_width="75dp"
                             android:layout_height="75dp"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="15dp" />
+                            android:layout_marginTop="15dp"
+                            android:src="@drawable/baseline_qr_code_scanner_24" />
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cardComplaint"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    app:cardCornerRadius="5sp"
-                    android:foreground="?android:attr/selectableItemBackground"
+                    android:layout_weight="1"
                     android:clickable="true"
-                    android:id="@+id/cardComplaint"
-                    android:layout_weight="1">
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="5sp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -212,12 +191,12 @@
                             android:textSize="24sp" />
 
                         <ImageView
-                            android:src="@drawable/baseline_insert_comment_24"
                             android:id="@+id/train"
                             android:layout_width="75dp"
                             android:layout_height="75dp"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="15dp" />
+                            android:layout_marginTop="15dp"
+                            android:src="@drawable/baseline_insert_comment_24" />
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
@@ -233,14 +212,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cardPrivacy"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    app:cardCornerRadius="5sp"
-                    android:foreground="?android:attr/selectableItemBackground"
+                    android:layout_weight="1"
                     android:clickable="true"
-                    android:id="@+id/cardPrivacy"
-                    android:layout_weight="1">
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="5sp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -257,24 +236,25 @@
                             android:textSize="24sp" />
 
                         <ImageView
-                            android:src="@drawable/baseline_private_connectivity_24"
                             android:id="@+id/cycle"
                             android:layout_width="75dp"
                             android:layout_height="75dp"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="15dp" />
+                            android:layout_marginTop="15dp"
+                            android:src="@drawable/baseline_private_connectivity_24" />
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cardLogout"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    app:cardCornerRadius="5sp"
-                    android:foreground="?android:attr/selectableItemBackground"
+                    android:layout_weight="1"
                     android:clickable="true"
-                    android:id="@+id/cardSetting"
-                    android:layout_weight="1">
+                    app:cardBackgroundColor="#8b0000"
+                    app:cardCornerRadius="5sp"
+                    android:focusable="true">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -287,16 +267,16 @@
                             android:layout_below="@id/airplane"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
-                            android:text="Settings"
+                            android:text="Logout"
                             android:textSize="24sp" />
 
                         <ImageView
-                            android:src="@drawable/baseline_settings_24"
                             android:id="@+id/airplane"
                             android:layout_width="75dp"
                             android:layout_height="75dp"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="15dp" />
+                            android:layout_marginTop="15dp"
+                            android:src="@drawable/baseline_logout_24" />
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>

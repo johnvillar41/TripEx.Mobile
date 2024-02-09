@@ -3,35 +3,32 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <uses-feature android:name="android.hardware.camera.any" />
+
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Material3.Dark"
         tools:targetApi="31">
         <activity
-            android:name=".Views.ComplaintActivity"
+            android:name=".Views.Implementations.VehicleQrScannerActivity"
             android:exported="false" />
         <activity
-            android:name=".Views.VehicleActivity"
+            android:name=".Views.Implementations.RegistrationActivity"
             android:exported="false" />
         <activity
-            android:name=".Views.QrScannerActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Views.DashboardMenuActivity"
-            android:exported="false"
-            android:theme="@style/Theme.Material3.Dark.NoActionBar" />
-        <activity
-            android:name=".Views.LoginActivity"
+            android:name=".Views.Implementations.SplashScreenActivity"
             android:exported="true"
             android:theme="@style/Theme.Material3.Dark.NoActionBar">
             <intent-filter>
@@ -44,6 +41,26 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <activity
+            android:name=".Views.Implementations.ComplaintActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Views.Implementations.DriverQrScannerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Views.Implementations.DashboardMenuActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Material3.Dark.NoActionBar" />
+        <activity
+            android:name=".Views.Implementations.LoginActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Material3.Dark.NoActionBar" />
+        <activity
+            android:name=".Views.Implementations.Capture"
+            android:exported="false"
+            android:screenOrientation="unspecified"
+            android:stateNotNeeded="false"
+            android:theme="@style/zxing_CaptureTheme" />
     </application>
 
 </manifest>

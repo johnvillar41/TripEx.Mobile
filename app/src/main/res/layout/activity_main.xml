@@ -6,8 +6,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
+        android:id="@+id/linearLayoutCompat"
         android:orientation="vertical"
-        tools:context=".Views.LoginActivity">
+        tools:context=".Views.Implementations.LoginActivity">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -91,6 +92,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Clear" />
+
+                    <Button
+                        android:id="@+id/btnRegister"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Register" />
+
                 </androidx.appcompat.widget.LinearLayoutCompat>
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.cardview.widget.CardView>

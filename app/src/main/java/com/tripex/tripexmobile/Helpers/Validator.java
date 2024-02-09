@@ -12,9 +12,9 @@ public class Validator {
             try {
                 new JSONArray(json);
             } catch (JSONException ne) {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 }

@@ -10,6 +10,15 @@ public class APIResponse<T> {
     @SerializedName("statusCode")
     private final int statusCode;
 
+    @SerializedName("pageSize")
+    private int pageSize;
+
+    public APIResponse(T result, int statusCode, int pageSize) {
+        this.result = result;
+        this.statusCode = statusCode;
+        this.pageSize = pageSize;
+    }
+
     public APIResponse(T result, int statusCode) {
         this.result = result;
         this.statusCode = statusCode;
@@ -21,5 +30,9 @@ public class APIResponse<T> {
 
     public int getStatusCode() {
         return statusCode;
+    }
+
+    public int getPageSize() {
+        return pageSize;
     }
 }
